@@ -8,19 +8,31 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="ActionBar 오른쪽에 있는 옵션 메뉴 버튼을 클릭하세요."/>
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="각도입력"/>
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:src="@drawable/puppy1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="옵션 메뉴를 통해 변경"/>
+        android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>

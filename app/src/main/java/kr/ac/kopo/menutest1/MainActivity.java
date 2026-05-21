@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -18,8 +20,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linear;
-    Button btn;
-    int rotationDegree;
+    EditText edit;
+    ImageView img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         linear = findViewById(R.id.main);
-        btn = findViewById(R.id.btn);
+        edit = findViewById(R.id.edit);
+        img = findViewById(R.id.img);
+
+
 
     }
 
@@ -51,22 +57,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-        if (item.getItemId() == R.id.item_blue) {
-            linear.setBackgroundColor(Color.BLUE);
+        int rotationDegree = 0;
+        if(item.getItemId() == R.id.img_rotate){
+            rotationDegree = Integer.parseInt(edit.getText().toString());
+            img.setRotation(rotationDegree);
             return true;
-        } else if (item.getItemId() == R.id.item_pink) {
-            linear.setBackgroundColor(Color.MAGENTA);
+        }
+        else if (item.getItemId() == R.id.item_puppy) {
+            img.setImageResource(R.drawable.puppy1);
+            item.setChecked(true);
             return true;
-        } else if (item.getItemId() == R.id.item_yellow) {
-            linear.setBackgroundColor(Color.YELLOW);
+        } else if (item.getItemId() == R.id.item_cat) {
+            img.setImageResource(R.drawable.cat);
+            item.setChecked(true);
             return true;
-        } else if (item.getItemId() == R.id.btn_rotate) {
-            rotationDegree += 45;
-            btn.setRotation(rotationDegree);
-            return true;
-        } else if (item.getItemId() == R.id.btn_zoomIn) {
-            btn.setScaleX(2);
-            btn.setScaleY(2);
+        } else if (item.getItemId() == R.id.item_panda) {
+            img.setImageResource(R.drawable.panda);
+            item.setChecked(true);
             return true;
         }
         return false;
